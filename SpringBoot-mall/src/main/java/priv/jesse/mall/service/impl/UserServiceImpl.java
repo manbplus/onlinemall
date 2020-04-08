@@ -16,32 +16,26 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
 
-    @Override
     public User findById(int id) {
         return userDao.getOne(id);
     }
 
-    @Override
     public Page<User> findAll(Pageable pageable) {
         return userDao.findAll(pageable);
     }
 
-    @Override
     public List<User> findAllExample(Example<User> example) {
         return userDao.findAll(example);
     }
 
-    @Override
     public void update(User user) {
         userDao.save(user);
     }
 
-    @Override
     public int create(User user) {
         return userDao.save(user).getId();
     }
 
-    @Override
     public void delById(int id) {
         userDao.delete(userDao.getOne(id));
     }
@@ -52,7 +46,6 @@ public class UserServiceImpl implements UserService {
      * @param username
      * @return
      */
-    @Override
     public List<User> findByUsername(String username) {
         return userDao.findByUsername(username);
     }
@@ -64,7 +57,6 @@ public class UserServiceImpl implements UserService {
      * @param password
      * @return
      */
-    @Override
     public User checkLogin(String username, String password) {
         return userDao.findByUsernameAndPassword(username, password);
     }
