@@ -16,12 +16,10 @@ public class ClassificationServiceImpl implements ClassificationService {
     @Autowired
     private ClassificationDao classificationDao;
 
-    @Override
     public Classification findById(int id) {
         return classificationDao.getOne(id);
     }
 
-    @Override
     public List<Classification> findAll(int type) {
         return classificationDao.findByType(type);
     }
@@ -32,28 +30,23 @@ public class ClassificationServiceImpl implements ClassificationService {
      * @param pageable
      * @return
      */
-    @Override
     public Page<Classification> findAll(int type, Pageable pageable) {
         return classificationDao.findByType(type, pageable);
     }
 
-    @Override
     public List<Classification> findAllExample(Example<Classification> example) {
         return classificationDao.findAll(example);
     }
 
-    @Override
     public void update(Classification classification) {
         classificationDao.save(classification);
     }
 
-    @Override
     public int create(Classification classification) {
         Classification classification1 = classificationDao.save(classification);
         return classification.getId();
     }
 
-    @Override
     public void delById(int id) {
         classificationDao.delete(classificationDao.getOne(id));
     }
@@ -64,7 +57,6 @@ public class ClassificationServiceImpl implements ClassificationService {
      * @param cid
      * @return
      */
-    @Override
     public List<Classification> findByParentId(int cid) {
         return classificationDao.findByParentId(cid);
     }

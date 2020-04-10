@@ -20,12 +20,10 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     private ClassificationDao classificationDao;
 
-    @Override
     public Product findById(int id) {
         return productDao.getOne(id);
     }
 
-    @Override
     public Page<Product> findAll(Pageable pageable) {
         return productDao.findAll(pageable);
     }
@@ -35,7 +33,6 @@ public class ProductServiceImpl implements ProductService {
      *
      * @return
      */
-    @Override
     public List<Product> findHotProduct() {
         return productDao.findByIsHot(1, null);
     }
@@ -46,7 +43,6 @@ public class ProductServiceImpl implements ProductService {
      * @param pageable
      * @return
      */
-    @Override
     public List<Product> findNewProduct(Pageable pageable) {
         // 查找两周内上架的商品
 //        Calendar calendar = Calendar.getInstance();
@@ -61,7 +57,6 @@ public class ProductServiceImpl implements ProductService {
      * @param pageable
      * @return
      */
-    @Override
     public List<Product> findByCid(int cid, Pageable pageable) {
         //查找出所有二级分类
         List<Classification> sec = classificationDao.findByParentId(cid);
