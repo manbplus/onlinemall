@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import priv.jesse.mall.entity.User;
 import priv.jesse.mall.entity.pojo.ResultBean;
 import priv.jesse.mall.service.UserService;
-import priv.jesse.mall.service.exception.LoginException;
+//import priv.jesse.mall.service.exception.LoginException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -57,7 +57,7 @@ public class UserController {
             request.getSession().setAttribute("user", user);
             response.sendRedirect("/mall/index.html");
         } else {
-            throw new LoginException("登录失败！ 用户名或者密码错误");
+            //throw new LoginException("登录失败！ 用户名或者密码错误");
         }
 
     }
