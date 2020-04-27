@@ -155,8 +155,9 @@
         var tbody = $("#productTable tbody").eq(0);
         tbody.html("");
         for (var i = 0; i < data.length; i++) {
+        	date=i+1;
             var tr = $("<tr style='display:none;height:50px;'></tr>");
-            tr.append($("<td></td>").text(data[i].id));
+            tr.append($("<td></td>").text(date));
             var src = data[i].image;
             tr.append($("<td></td>").html("<img style='display: block;height: 50px;max-width: 100%;' src='" + src + "'/>"));
             tr.append($("<td></td>").text(data[i].title));

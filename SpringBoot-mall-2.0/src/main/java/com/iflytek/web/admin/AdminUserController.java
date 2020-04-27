@@ -1,5 +1,6 @@
 package com.iflytek.web.admin;
 
+import org.apache.shiro.crypto.hash.Md5Hash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -67,7 +68,9 @@ public class AdminUserController {
         user.setId(id);
         user.setName(name);
         user.setUsername(username);
-        user.setPassword(password);
+        Md5Hash md5Hash=new Md5Hash(password,username,5);
+        
+        user.setPassword(md5Hash.toString());
         user.setAddr(addr);
         user.setEmail(email);
         user.setPhone(phone);

@@ -51,13 +51,18 @@ public class AuthorizationFilter implements Filter {
             // 登录，图片不拦截
             if (path.endsWith("toLogin.html")
                     || path.endsWith("toRegister.html")
+                    || path.endsWith("toForget.html")
+                    || path.endsWith("toForget1.html")
                     || path.endsWith("register.do")
+                    || path.endsWith("/check.do")
                     || path.endsWith("login.do")
+                    || path.endsWith("/seachName.do")
                     || path.endsWith("logout.do")
                     || path.endsWith("error.html")
                     || path.endsWith("checkUsername.do")
                     || path.indexOf("/mall/admin/product/img/") != -1
                     || path.endsWith("index.html")
+                   
                     || path.endsWith("classification/list.do")
                     || path.indexOf("product") != -1) {
                 chain.doFilter(request, response);

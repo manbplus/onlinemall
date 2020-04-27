@@ -25,7 +25,12 @@ public class OrderController {
     public String toOrderList() {
         return "mall/order/list";
     }
+    
 
+    @RequestMapping("/toComment.html")
+    public String toComment() {
+        return "mall/order/comment";
+    }
   
     @RequestMapping("/list.do")
     @ResponseBody

@@ -3,6 +3,7 @@ package com.iflytek.service;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+
 import com.iflytek.entity.Order;
 import com.iflytek.entity.OrderItem;
 
@@ -17,7 +18,6 @@ public interface OrderService {
     int STATE_WAITE_SEND = 2;
     int STATE_WAITE_RECEIVE = 3;
     int STATE_COMPLETE = 4;
-
 
   
     Order findById(int id);
@@ -53,4 +53,5 @@ public interface OrderService {
 
   
     void receive(int orderId);
+    
 }

@@ -1,5 +1,6 @@
 package com.iflytek.service;
 
+import org.apache.shiro.crypto.hash.Md5Hash;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -11,6 +12,7 @@ public interface UserService {
    
     User findById(int id);
 
+    
    
     Page<User> findAll(Pageable pageable);
 
@@ -31,6 +33,7 @@ public interface UserService {
 
    
     User checkLogin(String username,String password);
-
-
+    
+    User checkLogin1(String name,String phone);
+    void updatepassword(int id,String password);
 }

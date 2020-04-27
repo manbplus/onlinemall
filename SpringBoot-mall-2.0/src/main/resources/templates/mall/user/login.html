@@ -11,8 +11,15 @@
     <link th:href="@{/css/common.css}" rel="stylesheet" type="text/css"/>
     <script th:src="@{/layui/jquery-3.2.1.min.js}"></script>
     <script th:src="@{/layui/layui.js}"></script>
+    
     <style>
-
+body {
+	background-image: url("../image/timg.jpg");
+	
+} 
+ .captcha {width:45%;display:inline-block;}
+        .captcha-img {display:inline-block;width:34%;float:right;}
+        .captcha-img img {height:34px;border:1px solid #e6e6e6;height:36px;width:100%;}
     </style>
 </head>
 <body class="site-home">
@@ -42,6 +49,14 @@
                                        autocomplete="off" class="layui-input"/>
                             </div>
                         </div>
+                        
+    <div class="layui-form-item">
+                    <label class="layui-form-label" for="captcha">验证码：</label>
+                    <input type="text" name="captcha" lay-verify="required|captcha" placeholder="图形验证码" autocomplete="off" class="layui-input verification captcha">
+                    <div class="captcha-img">
+                        <img id="captchaPic" src="../image/captcha.png">
+                    </div>
+                </div>
 
                         <div class="layui-form-item">
                             <div class="layui-input-block">
@@ -51,7 +66,11 @@
                                 <button type="reset" class="layui-btn layui-btn-lg layui-btn-radius layui-btn-primary">
                                     重置
                                 </button>
+                                     
+                               <a href="/mall/user/toForget.html" target="_blank" class="forgetPswLink">忘记密码?</a>
+                                                    
                             </div>
+                  
                         </div>
                     </form>
                 </div>

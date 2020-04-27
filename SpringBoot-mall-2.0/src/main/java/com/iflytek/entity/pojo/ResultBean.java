@@ -1,6 +1,10 @@
 package com.iflytek.entity.pojo;
 
 import java.io.Serializable;
+import java.util.List;
+
+import com.iflytek.entity.Product;
+
 
 
 public class ResultBean<T> implements Serializable {
@@ -76,4 +80,6 @@ public class ResultBean<T> implements Serializable {
                 ", data=" + data +
                 '}';
     }
+
+	
 }

@@ -4,11 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.iflytek.dao.ClassificationDao;
 import com.iflytek.dao.ProductDao;
 import com.iflytek.entity.Classification;
 import com.iflytek.entity.Product;
+import com.iflytek.entity.pojo.ResultBean;
 import com.iflytek.service.ProductService;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -99,4 +103,7 @@ public class ProductServiceImpl implements ProductService {
     public void delById(int id) {
         productDao.delete(productDao.getOne(id));
     }
-}
+
+
+	}
+

@@ -1,10 +1,13 @@
 package com.iflytek.entity;
 
 import javax.persistence.*;
+
+import lombok.Data;
+
 import java.io.Serializable;
 import java.util.Date;
 
-
+@Data
 @Entity
 @Table(name = "`order`")
 public class Order implements Serializable {
@@ -34,9 +37,11 @@ public class Order implements Serializable {
     @Column
     private Integer userId;
 
+   
+    
     private static final long serialVersionUID = 1L;
 
-    public Order(Integer id, Double total, Integer state, Date orderTime, String name, String phone, String addr, Integer userId) {
+    public Order(Integer id, Double total, Integer state, Date orderTime, String name, String phone, String addr, Integer userId,String comment) {
         this.id = id;
         this.total = total;
         this.state = state;

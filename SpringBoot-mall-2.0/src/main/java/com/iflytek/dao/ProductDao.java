@@ -4,6 +4,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.iflytek.entity.Product;
 
 import java.util.Date;
@@ -26,4 +28,8 @@ public interface ProductDao extends JpaRepository<Product, Integer> {
   
     @Query(value = "SELECT * FROM (SELECT  * FROM product ORDER BY pdate DESC limit 0,24) a /*#pageable*/",nativeQuery = true)
     List<Product> findNew(Pageable pageable);
+
+   @Query(value="select * from product where title =?1 ",nativeQuery =true)
+   List<Product> seachName(String keyword,String title);
+
 }

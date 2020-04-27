@@ -57,6 +57,29 @@
         </div>
 
     </div>
+    
+            <div class="layui-row" id="popaddTest" style="display:none;"> 
+        <div class="layui-col-md10">
+            <form class="layui-form" lay-filter="formTestFilter" id="addAndUpdateEmployeeForm" action="../../insertCommodity" method="post">
+                <hr/>
+<!--                 <div class="layui-form-item"> -->
+<!--                     <label class="layui-form-label">商品ID：</label> -->
+<!--                     <div class="layui-input-inline"> -->
+<!--                         <input type="text" name="cid"  class="layui-input"> -->
+<!--                     </div> -->
+<!--                 </div> -->
+    <div class="order-evaluation-textarea">
+       <textarea id="content" name="content" placeholder="请对服务做个简单评价"  style="margin:100px ;width:500px ;height: 145px"  rows="10" cols="50" autofocus > </textarea>  
+					 
+					   	<button type="button" style="margin-left: 300px; height: 30px;width: 100px" class="btn-block btn-bule" id="modifybtn1">发布</button>
+					 
+    </div>
+            </form>
+        </div>
+    </div>
+    
+    
+    
     <script>
         //            <![CDATA[
         $(function () {
@@ -99,6 +122,8 @@
                     case 4:
                         status = "<span class='layui-badge layui-bg-gray'>订单完成</span>";
                         break;
+                    case 5:
+                    	status = "<span class='layui-badge layui-bg-yellow'>等待评价</span>";
                     default:
                         status = "<span class='layui-badge layui-bg-black'>未知状态</span>";
                         break;
@@ -110,6 +135,13 @@
                 if (state == 3) {
                     operter.append($("<button onclick='recieve(" + item.id + ")' class='layui-btn layui-btn-radius layui-btn-danger'>确认收货</button>"));
                 }
+                
+                if(state ==4){
+                	 operter.append($("<button onclick='comment(" + item.id + ")' class='layui-btn layui-btn-radius layui-btn-yellow'>等待评价</button>"));
+                
+                }
+                
+                
                 if (state == 1) {
                     operter.append($("<button onclick='pay(" + item.id + ")' class='layui-btn layui-btn-radius layui-btn-green'>付款</button>"));
                 }
@@ -166,6 +198,24 @@
 
         }
 
+        function comment(){
+//         	var data = obj.data;
+//             console.log(obj.data);
+            layer.open({
+                type:1,
+                title:"商品评价:",
+                area: ['50%','70%'],
+                content:$("#popaddTest").html()
+            });
+            form.render();
+            setFormValue(obj.data);//动态向表单赋值
+        	}
+        	
+
+        
+        
+        
+        
         //确认收货
         function recieve(id) {
             layer.confirm('您确认已经收到货了吗？', {
@@ -183,6 +233,7 @@
             });
 
         }
+        
 
         //            ]]>
     </script>

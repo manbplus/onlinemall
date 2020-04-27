@@ -14,6 +14,7 @@ public interface OrderDao extends JpaRepository<Order, Integer> {
     @Transactional
     @Query(value = "update `order` o set o.state=?1 where o.id=?2",nativeQuery = true)
     void updateState(int state,int id);
-
+//    @Query(value = "insert into `order`(comment) values(?1)",nativeQuery = true)
+//    int insertComment(Order order);
     List<Order> findByUserId(int userId);
 }

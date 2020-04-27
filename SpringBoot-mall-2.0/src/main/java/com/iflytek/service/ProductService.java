@@ -3,6 +3,8 @@ package com.iflytek.service;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import com.iflytek.entity.Product;
+import com.iflytek.entity.pojo.ResultBean;
+
 import java.util.List;
 
 public interface ProductService {
@@ -31,5 +33,6 @@ public interface ProductService {
 
    
     void delById(int id);
+     
 
 }

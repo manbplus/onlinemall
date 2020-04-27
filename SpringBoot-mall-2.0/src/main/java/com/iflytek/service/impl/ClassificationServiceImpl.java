@@ -68,4 +68,10 @@ public class ClassificationServiceImpl implements ClassificationService {
     public List<Classification> findByParentId(int cid) {
         return classificationDao.findByParentId(cid);
     }
+
+	@Override
+	public List<Classification> select(String cname) {
+		// TODO Auto-generated method stub
+		return classificationDao.select(cname);
+	}
 }

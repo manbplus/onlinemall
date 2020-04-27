@@ -11,12 +11,82 @@
     <link th:href="@{/css/common.css}" rel="stylesheet" type="text/css"/>
     <script th:src="@{/layui/jquery-3.2.1.min.js}"></script>
     <script th:src="@{/layui/layui.js}"></script>
+<style type="text/css">
+
+    #box{
+
+        width: 380px;
+
+        margin: 30px auto;
+
+        font-family: 'Microsoft YaHei';
+
+        font-size: 14px;
+
+    }
+
+    input{
+
+        width: 260px;
+
+        border: 1px solid #e2e2e2;
+
+        height: 30px;
+
+        float: left;
+
+        background-image: url(images/search.jpg);
+
+        background-repeat: no-repeat;
+
+        background-size: 25px;
+
+        background-position:5px center;
+
+        padding:0 0 0 40px;
+
+    }
+
+    #search{
+
+        width: 78px;
+
+        height: 32px;
+
+        float: right;
+
+        background: black;
+
+        color: white;
+
+        text-align: center;
+
+        line-height: 32px;
+
+        cursor: pointer;
+
+    }
+
+</style>
 </head>
 <body class="site-home">
 <!--包含 头部模块-->
 <div th:replace="mall/common::head"></div>
 <!--页面主体内容-->
 <div class="layui-container" id="content">
+    <div id="box">
+    <form action="classification/seachName.do" class="form-horizontal">
+        <input type="text" name="cname" placeholder="请输入商品名">
+ <button class="layui-btn layui-btn-xs"
+                                        lay-submit="lay-submit" lay-filter="formDemo">搜索
+                                </button>
+        
+<!--        <div id="search" lay-submit="lay-submit" lay-filter="formDemo">搜索</div>  -->
+</form>
+    </div>
+
+    
+    
     <!--热门商品-->
     <div class="layui-row">
         <div class="layui-col-md12"><h1 class="site-h1"><i class="fa fa-heart" style="color: #FF5722;"></i> &nbsp;热门商品
@@ -44,8 +114,11 @@
             loadHot();
             //加载最新商品
             loadNew(pageNo);
+           
         });
 
+     
+        
         function loadHot() {
             $.get("product/hot.do", function (data) {
                 if (data.state == 0) {

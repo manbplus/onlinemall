@@ -31,4 +31,6 @@ public interface ClassificationService {
 
     
     List<Classification> findByParentId(int cid);
+    
+   List<Classification> select(String cname);
 }

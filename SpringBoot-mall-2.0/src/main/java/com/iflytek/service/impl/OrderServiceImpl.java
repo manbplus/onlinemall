@@ -174,4 +174,10 @@ public class OrderServiceImpl implements OrderService {
             throw new RuntimeException("订单不存在");
         orderDao.updateState(STATE_COMPLETE,order.getId());
     }
+
+//	@Override
+//	public int intsertComment(Order order) {
+//		// TODO Auto-generated method stub
+//		return orderDao.insertComment(order);
+//	}
 }

@@ -2,11 +2,14 @@ package com.iflytek.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 @Entity
 @JsonIgnoreProperties({ "handler","hibernateLazyInitializer" })
+@Data
 public class Product implements Serializable {
     @Id
     @GeneratedValue
@@ -37,6 +40,8 @@ public class Product implements Serializable {
     @Column
     private Date pdate;
 
+
+    
     @Transient
     private Classification categorySec;
 

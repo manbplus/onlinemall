@@ -1,5 +1,6 @@
 package com.iflytek.web.admin;
 
+import org.apache.shiro.crypto.hash.Md5Hash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,7 +36,9 @@ public class AdminController {
     //@ResponseBody
     @RequestMapping(method = RequestMethod.POST, value = "/login.do")
     public void login(String username, String password, HttpServletRequest request, HttpServletResponse response) throws IOException {
-        AdminUser adminUser = adminUserService.checkLogin(request, username, password);
+    	Md5Hash md5Hash=new Md5Hash(password,username,5);
+    	System.out.println(md5Hash);
+    	AdminUser adminUser = adminUserService.checkLogin(request, username,md5Hash.toString());
         response.sendRedirect("/mall/admin/toIndex.html");
     }
 
